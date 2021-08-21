@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>角色管理 | DevOps</title>
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/x-icon" />
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/dashboard.css" rel="stylesheet">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.cookie.min.js"></script>
+    <script src="/js/sweetalert.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/common.js"></script>
+
+    <link href="/css/system_management/role_management.css" rel="stylesheet">
+    <script src="/js/system_management/role_management.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/dashboard.html">DevOps</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/index.html" id="real_username">未登陆</a></li>
+                <li><a onclick="logout()">注销</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-sm-3 col-md-2 sidebar">
+        <ul class="nav nav-sidebar">
+            <li class="active">
+                <a class="glyphicon glyphicon-cloud" href="/dashboard.html">
+                    工作台
+                </a>
+            </li>
+        </ul>
+        <ul class="nav nav-sidebar">
+            <li class="active">
+                <a class="glyphicon glyphicon-saved" data-toggle="collapse" data-parent="#accordion" href="#cmd_exec">
+                    命令执行
+                </a>
+            </li>
+            <ul id="cmd_exec" class="list-group panel-collapse collapse">
+                <li><a href="/cmd_exec/cmd_exec.html">命令执行</a></li>
+            </ul>
+        </ul>
+        <ul class="nav nav-sidebar">
+            <li class="active">
+                <a class="glyphicon glyphicon-send" data-toggle="collapse" data-parent="#accordion"
+                    href="#environment_management">
+                    环境管理
+                </a>
+            </li>
+            <ul id="environment_management" class="list-group panel-collapse collapse">
+                <li><a href="/environment_management/host_management.html">主机管理</a></li>
+            </ul>
+        </ul>
+        <ul class="nav nav-sidebar">
+            <li class="active">
+                <a class="glyphicon glyphicon-flash" data-toggle="collapse" data-parent="#accordion"
+                    href="#monitor_metric">
+                    监控指标
+                </a>
+            </li>
+            <ul id="monitor_metric" class="list-group panel-collapse collapse">
+                <li><a href="/monitor_metric/os_monitor.html">系统监控</a></li>
+            </ul>
+        </ul>
+        <ul class="nav nav-sidebar">
+            <li class="active">
+                <a class="glyphicon glyphicon-search" data-toggle="collapse" data-parent="#accordion"
+                    href="#audit_center">
+                    审计中心
+                </a>
+            </li>
+            <ul id="audit_center" class="list-group panel-collapse collapse">
+                <li><a href="/audit_center/operation_log.html">操作记录</a></li>
+            </ul>
+        </ul>
+        <ul class="nav nav-sidebar">
+            <li class="active">
+                <a class="glyphicon glyphicon-wrench" data-toggle="collapse" data-parent="#accordion"
+                    href="#plugin_management">
+                    插件管理
+                </a>
+            </li>
+            <ul id="plugin_management" class="list-group panel-collapse collapse">
+                <li><a href="/plugin_management/plugin_management.html">插件管理</a></li>
+            </ul>
+        </ul>
+        </ul>
+        <ul class="nav nav-sidebar">
+            <li class="active">
+                <a class="glyphicon glyphicon-cog" data-toggle="collapse" data-parent="#accordion"
+                    href="#system_management">
+                    系统管理
+                </a>
+            </li>
+            <ul id="system_management" class="list-group panel-collapse collapse in" aria-expanded="true">
+                <li><a href="/system_management/user_management.html">用户管理</a></li>
+                <li><a href="/system_management/role_management.html">角色管理 <span
+                            class="glyphicon glyphicon-chevron-right"></span></a></li>
+                <li><a href="/system_management/system_setting.html">系统设置</a></li>
+            </ul>
+    </div>
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <h3 class="sub-header">角色管理</h3>
+        <div class="sub-header">
+            <form class="form-inline">
+                <label>角色名称：</label>
+                <input type="text" class="form-control" placeholder="请输入">
+                <button type="button" class="btn btn-default refresh-button">
+                    <span class="glyphicon glyphicon-refresh"></span>刷新
+                </button>
+                <button type="button" class="btn btn-default add-button" data-toggle="modal" data-target="#addRole">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 新建
+                </button>
+            </form>
+        </div>
+        <div class="table-responsive col-md-12">
+            <table class="table table-striped excel-work">
+                <thead>
+                    <tr>
+                        <th>角色名称</th>
+                        <th>关联账户</th>
+                        <th class="infolan">描述信息</th>
+                        <th class="work">操作</th>
+                    </tr>
+                </thead>
+                <tbody id="project_list_table">
+                    <tr>
+                        <td>运维工程师</td>
+                        <td>0</td>
+                        <td>无</td>
+                        <td>
+                            <button class="btn btn-default" type="submit" data-toggle="modal"
+                                data-target="#editRole">编辑</button>
+                            <span class="cut-off">|</span>
+                            <button class="btn btn-default" type="submit" data-toggle="modal"
+                                data-target="#functionModal">功能权限</button>
+                            <span class="cut-off">|</span>
+                            <button class="btn btn-default" type="submit">发布权限</button>
+                            <span class="cut-off">|</span>
+                            <button class="btn btn-default" type="submit">主机权限</button>
+                            <span class="cut-off">|</span>
+                            <button class="btn btn-default" type="submit" data-toggle="modal"
+                                data-target="#deleteModal">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>开发工程师</td>
+                        <td>1</td>
+                        <td>无</td>
+                        <td>
+                            <button class="btn btn-default" type="submit">编辑</button>
+                            <span class="cut-off">|</span>
+                            <button class="btn btn-default" type="submit">功能权限</button>
+                            <span class="cut-off">|</span>
+                            <button class="btn btn-default" type="submit">发布权限</button>
+                            <span class="cut-off">|</span>
+                            <button class="btn btn-default" type="submit">主机权限</button>
+                            <span class="cut-off">|</span>
+                            <button class="btn btn-default" type="submit">删除</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal fade" id="addRole" tabindex="-1" role="dialog" aria-labelledby="addRoleLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="addRoleLabel">
+                        新建角色
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <form action="#" name="new-publishing" method="POST" class="form-horizontal">
+                        <div class="form-group has-success has-feedback">
+                            <label class="col-md-3 control-lable">
+                                <span class="infosign">*</span>
+                                角色名称：</label>
+                            <div class="input-text col-md-9">
+                                <input type="text" class="form-control" placeholder="请输入角色名称">
+                            </div>
+                        </div>
+
+                        <div class="form-group has-success has-feedback">
+                            <label class="col-md-3 control-lable">
+                                备注信息：</label>
+                            <div class="input-text col-md-9">
+                                <textarea type="text" class="form-control" placeholder="请输入角色备注信息"></textarea>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消
+                    </button>
+                    <button type="button" class="btn btn-primary">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="editRole" tabindex="-1" role="dialog" aria-labelledby="editRoleLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="editRoleLabel">
+                        编辑角色
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <form action="#" name="new-publishing" method="POST" class="form-horizontal">
+                        <div class="form-group has-success has-feedback">
+                            <label class="col-md-3 control-lable">
+                                <span class="infosign">*</span>
+                                角色名称：</label>
+                            <div class="input-text col-md-9">
+                                <input type="text" class="form-control" placeholder="请输入角色名称">
+                            </div>
+                        </div>
+
+                        <div class="form-group has-success has-feedback">
+                            <label class="col-md-3 control-lable">
+                                备注信息：</label>
+                            <div class="input-text col-md-9">
+                                <textarea type="text" class="form-control" placeholder="请输入角色备注信息"></textarea>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消
+                    </button>
+                    <button type="button" class="btn btn-primary">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="functionModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content functionModal">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">功能权限设置</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-info function-alert" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h4><span class="glyphicon glyphicon-info-sign"></span>小提示</h4>
+                        暂未生效。
+                    </div>
+                    <table class="table table-bordered table-function">
+                        <thead>
+                            <tr>
+                                <th class="one">模块</th>
+                                <th class="two">页面</th>
+                                <th class="three">功能</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>工作台</td>
+                                <td>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" id="inlineCheckbox1" value="option1"> 工作台
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" id="inlineCheckbox2" value="option2"> 查看工作台
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">环境管理</td>
+                                <td>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" id="inlineCheckbox1" value="option1"> 主机管理
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" id="inlineCheckbox2" value="option2"> 查看主机
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" id="inlineCheckbox3" value="option3"> 新建主机
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" id="inlineCheckbox4" value="option4"> 编辑主机
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" id="inlineCheckbox5" value="option5"> 删除主机
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" id="inlineCheckbox1" value="option1"> 容器集群
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" id="inlineCheckbox2" value="option2"> 查看集群
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">系统管理</td>
+                                <td>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" id="inlineCheckbox1" value="option1"> 用户管理
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" id="inlineCheckbox2" value="option2"> 新增用户
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" id="inlineCheckbox1" value="option1"> 角色管理
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" id="inlineCheckbox2" value="option2"> 新增角色
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" id="inlineCheckbox3" value="option3"> 修改角色
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" id="inlineCheckbox4" value="option4"> 删除角色
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" id="inlineCheckbox5" value="option5"> 查看角色
+                                    </label>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content deletemodal">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title"><span class="glyphicon glyphicon-question-sign"></span>删除确认</h4>
+                </div>
+                <div class="modal-body">
+                    <p>确定要删除【运维工程师】？</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
