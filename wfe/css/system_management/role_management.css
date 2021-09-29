@@ -1,161 +1,160 @@
 .sub-header .form-inline {
-  margin: 24px 0px;
+  margin: 24px 0
 }
 
 .sub-header .form-inline input {
   width: 300px;
-  padding: 4px 30px 4px 11px;
+  padding: 4px 30px 4px 11px
+}
+
+.sub-header .form-inline button {
+  margin-left: 20px;
+  background-color: #fff;
+  color: #000;
+  border-color: #b4b4b4
+}
+
+.sub-header .form-inline button:hover {
+  border-color: #000
 }
 
 .sub-header label {
   font-size: 14px;
-  cursor: default;
+  cursor: default
 }
 
 .main {
-  margin-top: 12px;
+  margin-top: 12px
 }
 
 .refresh-button {
-  background-color: #808A87;
+  background-color: #808a87;
   color: #fff;
-  margin-left: 40px;
+  margin-left: 40px
 }
 
 .add-button {
-  background-color: #808A87;
+  background-color: #808a87;
   color: #fff;
-  margin-left: 8px;
+  margin-left: 8px
 }
 
 .table-responsive th {
   font-size: 16px;
   font-weight: normal;
-  width: 50px;
+  width: 50px
 }
 
 .table-responsive button {
   font-size: 14px;
   letter-spacing: 3px;
-  padding: 0px 2px;
+  padding: 0 2px;
   background-color: transparent;
-  color: #444444;
-  border: none;
+  color: #444;
+  border: 0
 }
 
 .table-responsive .cut-off {
-  color: rgb(172, 170, 170);
+  color: #acaaaa
 }
 
 .table-responsive .excel-work tbody>tr:hover {
-  background-color: #e8f2fc;
+  background-color: #e8f2fc
 }
 
 .table-responsive .infolan {
-  width: 62px;
-}
-
-.table-responsive .excel-work tr {
-  height: 65px;
+  width: 62px
 }
 
 .table-responsive .excel-work td,
 .table-responsive .excel-work th {
   vertical-align: middle;
-  width: 295px;
+  width: 295px
 }
 
 .table-responsive .excel-work .work {
-  width: 400px;
+  width: 400px
 }
 
 .modal-content {
-  width: 800px;
+  width: 800px
 }
 
 .deletemodal {
-  width: 416px;
+  width: 416px
 }
 
 .deletemodal h4>span {
   padding-right: 8px;
-  color: #faad14;
-}
-
-.modal-body label {
-  text-align: right;
-  font-size: 14px;
-  text-decoration: none;
-  color: rgba(0, 0, 0, 0.65);
-  margin: 0 0 24px;
+  color: #faad14
 }
 
 .modal-body .infosign {
   font-size: 18px;
-  color: red;
+  color: red
 }
 
 .modal-body input {
   width: 500px;
-  margin-right: 10px;
+  margin-right: 10px
 }
 
 .has-success .form-control {
   border-color: #3c763d;
-  border: 1px solid #d9d9d9;
+  border: 1px solid #d9d9d9
 }
 
 .has-success .role-select button {
-  border-style: none;
+  border-style: none
 }
 
 .has-success .role-select button>a {
   text-decoration: none;
-  color: #1890ff;
+  color: #1890ff
 }
 
 .has-success .input-text textarea {
-  width: 500px;
+  width: 500px
 }
 
 .functionModal {
-  width: 1000px;
+  width: 1000px
 }
 
 .function-alert {
   width: 600px;
   margin-left: auto;
   margin-right: auto;
-  padding: 15px 40px 15px 40px;
+  padding: 15px 40px 15px 40px
 }
 
 .function-alert h4 {
-  font-size: 16px;
+  font-size: 16px
 }
 
 .function-alert h4>span {
   font-size: 20px;
   padding-right: 10px;
-  color: #1890ff;
+  color: #1890ff
 }
 
 .table-function thead>tr>th {
   padding: 5px 15px;
   font-size: 18px;
   font-weight: 500;
-  background-color: #fafafa;
+  background-color: #fafafa
 }
 
 .table-function tbody>tr>td {
   padding: 5px 15px;
   display: table-cell;
-  vertical-align: middle;
+  vertical-align: middle
 }
 
 .checkbox input[type="checkbox"],
 .checkbox-inline input[type="checkbox"] {
   margin-left: -19px;
-  width: 13px;
+  width: 13px
 }
 
 .modal-body label {
@@ -164,5 +163,5 @@
   font-weight: 520;
   text-decoration: none;
   color: rgba(0, 0, 0, 0.65);
-  margin: 0px 0px 1px;
+  margin: 0 0 1px
 }

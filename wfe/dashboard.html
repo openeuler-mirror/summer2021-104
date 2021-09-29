@@ -14,16 +14,14 @@
     <script src="/js/sweetalert.min.js"></script>
     <script src="/js/util.js"></script>
     <script src="/js/common.js"></script>
-
     <link href="/css/dashboard.css" rel="stylesheet">
+    <script src="/js/echarts.min.js"></script>
     <script src="/js/dashboard.js"></script>
 </head>
 
 <body>
     <div class="container-fluid navbar navbar-inverse navbar-fixed-top">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/dashboard.html">DevOps</a>
-        </div>
+        <div class="navbar-header"><a class="navbar-brand" href="/dashboard.html">DevOps</a></div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/index.html" id="real_username">未登陆</a></li>
@@ -33,72 +31,41 @@
     </div>
     <div class="col-sm-3 col-md-2 sidebar">
         <ul class="nav nav-sidebar">
-            <li class="active">
-                <a class="glyphicon glyphicon-cloud" href="/dashboard.html">
-                    工作台 <span class="glyphicon glyphicon-chevron-right"></span>
-                </a>
-            </li>
+            <li class="active"><a class="glyphicon glyphicon-cloud" href="/dashboard.html"> 工作台<span
+                        class="glyphicon glyphicon-chevron-right"></span></a></li>
         </ul>
         <ul class="nav nav-sidebar">
-            <li class="active">
-                <a class="glyphicon glyphicon-saved" data-toggle="collapse" data-parent="#accordion" href="#collapse00">
-                    命令执行
-                </a>
-            </li>
+            <li class="active"><a class="glyphicon glyphicon-saved" data-toggle="collapse" data-parent="#accordion"
+                    href="#collapse00"> 命令执行</a></li>
             <ul id="collapse00" class="list-group panel-collapse collapse">
                 <li><a href="/cmd_exec/cmd_exec.html">命令执行</a></li>
             </ul>
         </ul>
         <ul class="nav nav-sidebar">
-            <li class="active">
-                <a class="glyphicon glyphicon-send" data-toggle="collapse" data-parent="#accordion" href="#collapse0">
-                    环境管理
-                </a>
-            </li>
+            <li class="active"><a class="glyphicon glyphicon-send" data-toggle="collapse" data-parent="#accordion"
+                    href="#collapse0"> 环境管理</a></li>
             <ul id="collapse0" class="list-group panel-collapse collapse">
                 <li><a href="/environment_management/host_management.html">主机管理</a></li>
             </ul>
         </ul>
         <ul class="nav nav-sidebar">
-            <li class="active">
-                <a class="glyphicon glyphicon-flash" data-toggle="collapse" data-parent="#accordion"
-                    href="#collapseThree">
-                    监控指标
-                </a>
-            </li>
+            <li class="active"><a class="glyphicon glyphicon-flash" data-toggle="collapse" data-parent="#accordion"
+                    href="#collapseThree"> 监控指标</a></li>
             <ul id="collapseThree" class="list-group panel-collapse collapse">
                 <li><a href="/monitor_metric/os_monitor.html">系统监控</a></li>
             </ul>
         </ul>
         <ul class="nav nav-sidebar">
-            <li class="active">
-                <a class="glyphicon glyphicon-search" data-toggle="collapse" data-parent="#accordion"
-                    href="#collapseThree1">
-                    审计中心
-                </a>
-            </li>
+            <li class="active"><a class="glyphicon glyphicon-search" data-toggle="collapse" data-parent="#accordion"
+                    href="#collapseThree1"> 审计中心</a></li>
             <ul id="collapseThree1" class="list-group panel-collapse collapse">
                 <li><a href="/audit_center/operation_log.html">操作记录</a></li>
             </ul>
         </ul>
-        <ul class="nav nav-sidebar">
-            <li class="active">
-                <a class="glyphicon glyphicon-wrench" data-toggle="collapse" data-parent="#accordion"
-                    href="#collapseFour0">
-                    插件管理
-                </a>
-            </li>
-            <ul id="collapseFour0" class="list-group panel-collapse collapse">
-                <li><a href="/plugin_management/plugin_management.html">插件管理</a></li>
-            </ul>
-        </ul>
         </ul>
         <ul class="nav nav-sidebar">
-            <li class="active">
-                <a class="glyphicon glyphicon-cog" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
-                    系统管理
-                </a>
-            </li>
+            <li class="active"><a class="glyphicon glyphicon-cog" data-toggle="collapse" data-parent="#accordion"
+                    href="#collapseFour"> 系统管理</a></li>
             <ul id="collapseFour" class="list-group panel-collapse collapse">
                 <li><a href="/system_management/user_management.html">用户管理</a></li>
                 <li><a href="/system_management/role_management.html">角色管理</a></li>
@@ -107,7 +74,108 @@
     </div>
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <h3 class="sub-header">工作台</h3>
+        <div class="sub-header">
+            <table style="width: 100%;">
+                <tr>
+                    <td style="width: 50%;" align="center">
+                        <div id="ProjectInfo" style="width: 100%; height: 300px;"></div>
+                    </td>
+                    <td align="center">
+                        <div id="UserInfo" style="width: 100%; height:300px;"></div>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
+    </div>
+    <script type="text/javascript">
+        var settings = {
+            url: "/api/dashboard/info",
+            type: "POST",
+            headers: {
+                "token": $.cookie('token'),
+                "Content-Type": "application/json",
+            },
+            async: false
+        }
+        $.ajax(settings).success(function (response) {
+            console.log(response);
+            var ProjectInfo = echarts.init(document.getElementById('ProjectInfo'));
+            var ProjectInfoOption = {
+                title: {
+                    text: '主机数量',
+                    left: 'center'
+                },
+                tooltip: {
+                    trigger: 'item'
+                },
+                legend: {
+                    orient: 'vertical',
+                    left: 'left',
+                },
+                series: [{
+                    name: '主机状态',
+                    type: 'pie',
+                    radius: '50%',
+                    data: [{
+                        value: response['Response']['host']['active'],
+                        name: '活动'
+                    }, {
+                        value: response['Response']['host']['inactive'],
+                        name: '非活动'
+                    }],
+                    emphasis: {
+                        itemStyle: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }]
+            };
+            ProjectInfo.setOption(ProjectInfoOption);
+            var UserInfo = echarts.init(document.getElementById('UserInfo'));
+            var UserInfoOption = {
+                title: {
+                    text: '用户数量',
+                    left: 'center'
+                },
+                tooltip: {
+                    trigger: 'item'
+                },
+                legend: {
+                    orient: 'vertical',
+                    left: 'left',
+                },
+                series: [{
+                    name: '用户数量',
+                    type: 'pie',
+                    radius: '50%',
+                    data: [{
+                        value: response['Response']['user']['system'],
+                        name: '系统管理'
+                    }, {
+                        value: response['Response']['user']['dev'],
+                        name: '开发团队'
+                    }, {
+                        value: response['Response']['user']['test'],
+                        name: '测试团队'
+                    }, {
+                        value: response['Response']['user']['ops'],
+                        name: '运维团队'
+                    }],
+                    emphasis: {
+                        itemStyle: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(1, 1, 1, 0.5)'
+                        }
+                    }
+                }]
+            };
+            UserInfo.setOption(UserInfoOption);
+        });
+    </script>
 </body>
 
 </html>

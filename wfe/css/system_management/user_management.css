@@ -1,21 +1,21 @@
 body {
-  padding-top: 50px;
+  padding-top: 50px
 }
 
 .sub-header {
   padding-bottom: 10px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #eee
 }
 
 .navbar-fixed-top {
-  border: 0;
+  border: 0
 }
 
 .sidebar {
-  display: none;
+  display: none
 }
 
-@media (min-width: 768px) {
+@media(min-width:768px) {
   .sidebar {
     position: fixed;
     top: 51px;
@@ -27,27 +27,27 @@ body {
     overflow-x: hidden;
     overflow-y: auto;
     background-color: #f5f5f5;
-    border-right: 1px solid #eee;
+    border-right: 1px solid #eee
   }
 }
 
 .nav-sidebar {
   margin-right: -21px;
   margin-bottom: 20px;
-  margin-left: -20px;
+  margin-left: -20px
 }
 
 .nav-sidebar>li>a {
   padding-right: 20px;
   padding-left: 20px;
-  font-size: 15px;
+  font-size: 15px
 }
 
 .list-group li {
   display: block;
   text-decoration: none;
   padding: 8px 50px;
-  font-size: 15px;
+  font-size: 15px
 }
 
 .nav-sidebar>.active>a:hover,
@@ -56,82 +56,81 @@ body {
 .list-group li>a:hover,
 .list-group li>a:focus {
   background-color: #dcdddd;
-  color: rgb(8, 8, 8);
-  text-decoration: none;
+  color: #080808;
+  text-decoration: none
 }
 
 .main {
-  padding: 20px;
+  padding: 20px
 }
 
 .main .page-header {
-  margin-top: 0;
+  margin-top: 0
 }
 
-@media (min-width: 768px) {
+@media(min-width:768px) {
   .main {
     padding-right: 40px;
-    padding-left: 40px;
+    padding-left: 40px
   }
 }
 
 .placeholders {
   margin-bottom: 30px;
-  text-align: center;
+  text-align: center
 }
 
 .placeholders h4 {
-  margin-bottom: 0;
+  margin-bottom: 0
 }
 
 .placeholder {
-  margin-bottom: 20px;
+  margin-bottom: 20px
 }
 
 .placeholder img {
   display: inline-block;
-  border-radius: 50%;
+  border-radius: 50%
 }
 
-
 .sub-header .form-inline {
-  margin: 24px 0px;
+  margin: 24px 0
 }
 
 .sub-header .form-inline input {
   width: 300px;
-  padding: 4px 30px 4px 11px;
+  padding: 4px 30px 4px 11px
 }
 
 .sub-header .form-inline select {
-  width: 300px;
+  width: 300px
 }
 
 .sub-header label {
   font-size: 14px;
-  cursor: default;
+  cursor: default
 }
 
 .sub-header select {
-  padding-right: 90px;
+  padding-right: 90px
 }
 
 .main {
-  margin-top: 12px;
+  margin-top: 12px
 }
 
 .refresh-button {
   background-color: #d1def8;
   border-color: #98b1e2;
   color: black;
-  margin-left: 40px;
+  margin-left: 40px
 }
 
 .add-button {
   background-color: #d1def8;
   border-color: #98b1e2;
   color: black;
-  margin-left: 8px;
+  margin-left: 8px
 }
 
 .table>tbody>tr>td,
@@ -140,40 +139,40 @@ body {
 .table>tfoot>tr>th,
 .table>thead>tr>td,
 .table>thead>tr>th {
-  vertical-align: middle;
+  vertical-align: middle
 }
 
 .menu-name {
-  padding-left: 20px;
+  padding-left: 20px
 }
 
 .modal-content {
-  width: 800px;
+  width: 800px
 }
 
 .banpage,
 .passwordpage,
 .deletepage {
-  width: 416px;
+  width: 416px
 }
 
 .ban-modal h4>span {
   padding-right: 8px;
-  color: #faad14;
+  color: #faad14
 }
 
 .psw-input {
   width: 260px;
-  margin: 30px 5px 20px 5px;
+  margin: 30px 5px 20px 5px
 }
 
 .pass-eye {
   display: flex;
-  flex-direction: row;
+  flex-direction: row
 }
 
 .pass-eye i {
-  margin-top: 40px;
+  margin-top: 40px
 }
 
 .modal-body label {
@@ -181,39 +180,39 @@ body {
   font-size: 14px;
   text-decoration: none;
   color: rgba(0, 0, 0, 0.65);
-  margin: 0 0 24px;
+  margin: 0 0 24px
 }
 
 .modal-body .infosign {
   font-size: 18px;
-  color: red;
+  color: red
 }
 
 .modal-body input {
   width: 500px;
-  margin-right: 10px;
+  margin-right: 10px
 }
 
 .has-success .form-control {
   border-color: #3c763d;
-  border: 1px solid #d9d9d9;
+  border: 1px solid #d9d9d9
 }
 
 .has-success .role-select select {
   width: 300px;
-  margin-left: 15px;
+  margin-left: 15px
 }
 
 .has-success .role-select {
   display: flex;
-  flex-direction: row;
+  flex-direction: row
 }
 
 .has-success .role-select button {
-  border-style: none;
+  border-style: none
 }
 
 .has-success .role-select button>a {
   text-decoration: none;
-  color: #1890ff;
+  color: #1890ff
 }

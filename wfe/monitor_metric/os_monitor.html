@@ -14,16 +14,13 @@
     <script src="/js/sweetalert.min.js"></script>
     <script src="/js/util.js"></script>
     <script src="/js/common.js"></script>
-    
     <link href="/css/monitor_metric/os_monitor.css" rel="stylesheet">
-    <script src="/js/monitor_metric/os_monitor.js"></script>
+    <script src="/js/echarts.min.js"></script>
 </head>
 
 <body>
     <div class="container-fluid navbar navbar-inverse navbar-fixed-top">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/dashboard.html">DevOps</a>
-        </div>
+        <div class="navbar-header"><a class="navbar-brand" href="/dashboard.html">DevOps</a></div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/index.html" id="real_username">未登陆</a></li>
@@ -33,75 +30,40 @@
     </div>
     <div class="col-sm-3 col-md-2 sidebar">
         <ul class="nav nav-sidebar">
-            <li class="active">
-                <a class="glyphicon glyphicon-cloud" href="/dashboard.html">
-                    工作台
-                </a>
-            </li>
+            <li class="active"><a class="glyphicon glyphicon-cloud" href="/dashboard.html"> 工作台</a></li>
         </ul>
         <ul class="nav nav-sidebar">
-            <li class="active">
-                <a class="glyphicon glyphicon-saved" data-toggle="collapse" data-parent="#accordion" href="#cmd_exec">
-                    命令执行
-                </a>
-            </li>
+            <li class="active"><a class="glyphicon glyphicon-saved" data-toggle="collapse" data-parent="#accordion"
+                    href="#cmd_exec"> 命令执行</a></li>
             <ul id="cmd_exec" class="list-group panel-collapse collapse">
                 <li><a href="/cmd_exec/cmd_exec.html">命令执行</a></li>
             </ul>
         </ul>
         <ul class="nav nav-sidebar">
-            <li class="active">
-                <a class="glyphicon glyphicon-send" data-toggle="collapse" data-parent="#accordion"
-                    href="#environment_management">
-                    环境管理
-                </a>
-            </li>
+            <li class="active"><a class="glyphicon glyphicon-send" data-toggle="collapse" data-parent="#accordion"
+                    href="#environment_management"> 环境管理</a></li>
             <ul id="environment_management" class="list-group panel-collapse collapse">
                 <li><a href="/environment_management/host_management.html">主机管理</a></li>
             </ul>
         </ul>
         <ul class="nav nav-sidebar">
-            <li class="active">
-                <a class="glyphicon glyphicon-flash" data-toggle="collapse" data-parent="#accordion"
-                    href="#monitor_metric">
-                    监控指标
-                </a>
-            </li>
+            <li class="active"><a class="glyphicon glyphicon-flash" data-toggle="collapse" data-parent="#accordion"
+                    href="#monitor_metric"> 监控指标</a></li>
             <ul id="monitor_metric" class="list-group panel-collapse collapse in" aria-expanded="true">
-                <li><a href="/monitor_metric/os_monitor.html">系统监控 <span
+                <li><a href="/monitor_metric/os_monitor.html">系统监控<span
                             class="glyphicon glyphicon-chevron-right"></span></a></li>
             </ul>
         </ul>
         <ul class="nav nav-sidebar">
-            <li class="active">
-                <a class="glyphicon glyphicon-search" data-toggle="collapse" data-parent="#accordion"
-                    href="#audit_center">
-                    审计中心
-                </a>
-            </li>
+            <li class="active"><a class="glyphicon glyphicon-search" data-toggle="collapse" data-parent="#accordion"
+                    href="#audit_center"> 审计中心</a></li>
             <ul id="audit_center" class="list-group panel-collapse collapse">
                 <li><a href="/audit_center/operation_log.html">操作记录</a></li>
             </ul>
         </ul>
         <ul class="nav nav-sidebar">
-            <li class="active">
-                <a class="glyphicon glyphicon-wrench" data-toggle="collapse" data-parent="#accordion"
-                    href="#plugin_management">
-                    插件管理
-                </a>
-            </li>
-            <ul id="plugin_management" class="list-group panel-collapse collapse">
-                <li><a href="/plugin_management/plugin_management.html">插件管理</a></li>
-            </ul>
-        </ul>
-        </ul>
-        <ul class="nav nav-sidebar">
-            <li class="active">
-                <a class="glyphicon glyphicon-cog" data-toggle="collapse" data-parent="#accordion"
-                    href="#system_management">
-                    系统管理
-                </a>
-            </li>
+            <li class="active"><a class="glyphicon glyphicon-cog" data-toggle="collapse" data-parent="#accordion"
+                    href="#system_management"> 系统管理</a></li>
             <ul id="system_management" class="list-group panel-collapse collapse">
                 <li><a href="/system_management/user_management.html">用户管理</a></li>
                 <li><a href="/system_management/role_management.html">角色管理</a></li>
@@ -110,7 +72,9 @@
     </div>
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <h3 class="sub-header">系统监控</h3>
+        <div id="MonitorList"></div>
     </div>
+    <script src="/js/monitor_metric/os_monitor.js"></script>
 </body>
 
 </html>

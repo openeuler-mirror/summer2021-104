@@ -1,53 +1,53 @@
 body {
-    padding-top: 50px;
+  padding-top: 50px
 }
 
 .sub-header {
-    padding-bottom: 10px;
-    border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee
 }
 
 .navbar-fixed-top {
-    border: 0;
+  border: 0
 }
 
 .sidebar {
-    display: none;
+  display: none
 }
 
-@media (min-width: 768px) {
-    .sidebar {
-        position: fixed;
-        top: 51px;
-        bottom: 0;
-        left: 0;
-        z-index: 1000;
-        display: block;
-        padding: 20px;
-        overflow-x: hidden;
-        overflow-y: auto;
-        background-color: #f5f5f5;
-        border-right: 1px solid #eee;
-    }
+@media(min-width:768px) {
+  .sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #f5f5f5;
+    border-right: 1px solid #eee
+  }
 }
 
 .nav-sidebar {
-    margin-right: -21px;
-    margin-bottom: 20px;
-    margin-left: -20px;
+  margin-right: -21px;
+  margin-bottom: 20px;
+  margin-left: -20px
 }
 
 .nav-sidebar>li>a {
-    padding-right: 20px;
-    padding-left: 20px;
-    font-size: 15px;
+  padding-right: 20px;
+  padding-left: 20px;
+  font-size: 15px
 }
 
 .list-group li {
-    display: block;
-    text-decoration: none;
-    padding: 8px 50px;
-    font-size: 15px;
+  display: block;
+  text-decoration: none;
+  padding: 8px 50px;
+  font-size: 15px
 }
 
 .nav-sidebar>.active>a:hover,
@@ -55,40 +55,73 @@ body {
 .list-group li:hover,
 .list-group li>a:hover,
 .list-group li>a:focus {
-    background-color: #dcdddd;
-    color: rgb(8, 8, 8);
-    text-decoration: none;
+  background-color: #dcdddd;
+  color: #080808;
+  text-decoration: none
 }
 
 .main {
-    padding: 20px;
+  padding: 20px
 }
 
 .main .page-header {
-    margin-top: 0;
+  margin-top: 0
 }
 
-@media (min-width: 768px) {
-    .main {
-        padding-right: 40px;
-        padding-left: 40px;
-    }
+@media(min-width:768px) {
+  .main {
+    padding-right: 40px;
+    padding-left: 40px
+  }
 }
 
 .placeholders {
-    margin-bottom: 30px;
-    text-align: center;
+  margin-bottom: 30px;
+  text-align: center
 }
 
 .placeholders h4 {
-    margin-bottom: 0;
+  margin-bottom: 0
 }
 
 .placeholder {
-    margin-bottom: 20px;
+  margin-bottom: 20px
 }
 
 .placeholder img {
-    display: inline-block;
-    border-radius: 50%;
+  display: inline-block;
+  border-radius: 50%
+}
+
+.table-responsive {
+  padding-top: 10px
+}
+
+.table-responsive th {
+  font-size: 16px;
+  font-weight: normal;
+  width: 50px
+}
+
+.table-responsive button {
+  font-size: 14px;
+  letter-spacing: 3px;
+  padding: 0 2px;
+  background-color: transparent;
+  color: #444;
+  border: 0
+}
+
+.table-responsive .cut-off {
+  color: #acaaaa
+}
+
+.table-responsive .log-work tbody>tr:hover {
+  background-color: #e8f2fc
+}
+
+.table-responsive .log-work td,
+.table-responsive .log-work th {
+  vertical-align: middle;
+  width: 295px
 }

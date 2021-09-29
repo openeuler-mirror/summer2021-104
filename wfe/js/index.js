@@ -1,6 +1,5 @@
 var devops_login = function () {
     var data = jqu.formData('devops_login_form');
-    console.log(JSON.stringify(data));
     if (data.username == '') {
         alert('请输入用户名');
         return;
@@ -16,6 +15,9 @@ var devops_login = function () {
         }
         alert('欢迎 ' + result.user_realname + ' 登录 DevOps 系统！');
         $.cookie('token', result.token);
+        $.cookie('realname', result.user_realname);
+        $.cookie('user_id', result.user_id);
+        $.cookie('username', data.username);
         window.location.href = "/dashboard.html";
     });
 };

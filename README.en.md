@@ -19,10 +19,8 @@ Web Front Endpoint use Native jQuery, Web Back Endpoint use Golang Gin.
 
 #### Instructions
 
-1.  Chrome Open http://127.0.0.1
-2.  Input Admin or Ops User Info
-    a) System Admin Username：admin Password：200705
-    b) Ops Username：ops Password：200705
+1.  Chrome Open http://210.22.22.150:4355
+2.  Input Admin User Info, System Admin Username：admin Password：200705
 3.  点击左侧导航栏使用系统
 
 #### Contribution

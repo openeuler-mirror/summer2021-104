@@ -1,21 +1,21 @@
 body {
-  padding-top: 50px;
+  padding-top: 50px
 }
 
 .sub-header {
   padding-bottom: 10px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #eee
 }
 
 .navbar-fixed-top {
-  border: 0;
+  border: 0
 }
 
 .sidebar {
-  display: none;
+  display: none
 }
 
-@media (min-width: 768px) {
+@media(min-width:768px) {
   .sidebar {
     position: fixed;
     top: 51px;
@@ -27,27 +27,27 @@ body {
     overflow-x: hidden;
     overflow-y: auto;
     background-color: #f5f5f5;
-    border-right: 1px solid #eee;
+    border-right: 1px solid #eee
   }
 }
 
 .nav-sidebar {
   margin-right: -21px;
   margin-bottom: 20px;
-  margin-left: -20px;
+  margin-left: -20px
 }
 
 .nav-sidebar>li>a {
   padding-right: 20px;
   padding-left: 20px;
-  font-size: 15px;
+  font-size: 15px
 }
 
 .list-group li {
   display: block;
   text-decoration: none;
   padding: 8px 50px;
-  font-size: 15px;
+  font-size: 15px
 }
 
 .nav-sidebar>.active>a:hover,
@@ -56,43 +56,42 @@ body {
 .list-group li>a:hover,
 .list-group li>a:focus {
   background-color: #dcdddd;
-  color: rgb(8, 8, 8);
-  text-decoration: none;
+  color: #080808;
+  text-decoration: none
 }
 
 .main {
-  padding: 20px;
+  padding: 20px
 }
 
 .main .page-header {
-  margin-top: 0;
+  margin-top: 0
 }
 
-@media (min-width: 768px) {
+@media(min-width:768px) {
   .main {
     padding-right: 40px;
-    padding-left: 40px;
+    padding-left: 40px
   }
 }
 
 .placeholders {
   margin-bottom: 30px;
-  text-align: center;
+  text-align: center
 }
 
 .placeholders h4 {
-  margin-bottom: 0;
+  margin-bottom: 0
 }
 
 .placeholder {
-  margin-bottom: 20px;
+  margin-bottom: 20px
 }
 
 .placeholder img {
   display: inline-block;
-  border-radius: 50%;
+  border-radius: 50%
 }
-
 
 .request_container {
   display: flex;
@@ -100,7 +99,7 @@ body {
   padding: 16px 0;
   flex: auto;
   padding: 0;
-  min-height: 400px;
+  min-height: 400px
 }
 
 .devops-setting-menu {
@@ -109,14 +108,14 @@ body {
   margin: 0;
   padding: 0;
   color: rgba(0, 0, 0, 0.65);
-  list-style: none;
+  list-style: none
 }
 
 .request_left_setting {
   flex: 2 1;
   border-right: 1px solid #e8e8e8;
-  padding-right: 0px;
-  padding-left: 0px;
+  padding-right: 0;
+  padding-left: 0
 }
 
 .setting-menu-item {
@@ -124,7 +123,7 @@ body {
   display: block;
   margin-left: 0;
   margin-top: 20px;
-  padding: 20px 0px 10px 30px;
+  padding: 20px 0 10px 30px
 }
 
 .devops-setting-menu-inline li {
@@ -133,7 +132,7 @@ body {
   height: 40px;
   margin-bottom: 15px;
   padding-top: 10px;
-  border-left: 0px;
+  border-left: 0
 }
 
 .devops-setting-menu-inline li:hover,
@@ -141,12 +140,12 @@ body {
 .devops-setting-menu-inline li:visited {
   color: #1890ff;
   background-color: #e6f7ff;
-  border-right: 3px solid #1890ff;
+  border-right: 3px solid #1890ff
 }
 
 .request_right_setting {
   flex: 7 1;
-  padding: 8px 40px;
+  padding: 8px 40px
 }
 
 .request_title_setting {
@@ -158,66 +157,66 @@ body {
   color: rgba(0, 0, 0, 0.85);
   font-weight: 500;
   font-size: 20px;
-  line-height: 28px;
+  line-height: 28px
 }
 
 .request_second .devops-setting-form-item-control {
   display: flex;
-  flex-direction: column;
+  flex-direction: column
 }
 
 .devops-setting-form-horizontal label {
   font-size: 14px;
   font-weight: 500;
-  padding-top: 20px;
+  padding-top: 20px
 }
 
 .devops-setting-form-explain {
   font-size: 14px;
-  color: rgb(170, 170, 170);
+  color: #aaa
 }
 
 .has-success,
 .pass-eye {
   display: flex;
-  flex-direction: row;
+  flex-direction: row
 }
 
 .infosign {
-  color: red;
+  color: red
 }
 
 .left-firstlable {
   font-size: 14px;
   font-weight: 500;
-  margin-top: 15px;
+  margin-top: 15px
 }
 
 .right-first {
-  margin: 10px 15px;
+  margin: 10px 15px
 }
 
 .managementDN {
-  margin-left: 30px;
+  margin-left: 30px
 }
 
 .user_password {
-  margin-left: 22px;
+  margin-left: 22px
 }
 
 .base-DN {
-  margin-left: 45px;
+  margin-left: 45px
 }
 
 .test-LDAP {
   background-color: #ff4d4f;
-  color: #fff;
+  color: #fff
 }
 
 .save-button,
 .alert-save-button {
   background-color: #1890ff;
-  color: #fff;
+  color: #fff
 }
 
 .function-alert {
@@ -225,144 +224,144 @@ body {
   margin-left: auto;
   margin-right: auto;
   padding: 10px 30px;
-  font-size: 14px;
+  font-size: 14px
 }
 
 .function-alert h4 {
   font-size: 16px;
-  padding-top: 8px;
+  padding-top: 8px
 }
 
 .function-alert h4>span {
   font-size: 20px;
   padding-right: 10px;
   color: #1890ff;
-  vertical-align: middle;
+  vertical-align: middle
 }
 
 .has-secret,
 .alert-email {
   display: flex;
-  flex-direction: column;
+  flex-direction: column
 }
 
 .has-secret label {
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 500
 }
 
 .first-textarea .right-first,
 .second-textarea .right-first {
   width: 650px;
-  margin: 0px;
+  margin: 0
 }
 
 .has-secret .first-textarea textarea {
-  height: 161px;
+  height: 161px
 }
 
 .has-secret .second-textarea textarea {
-  height: 304px;
+  height: 304px
 }
 
 .small-tip {
   font-size: 14px;
-  color: #bbbbbd;
+  color: #bbbbbd
 }
 
 .alert-tab {
-  max-width: 340px;
+  max-width: 340px
 }
 
 .alert-hover {
-  color: rgb(0, 141, 255);
-  cursor: pointer;
+  color: #008dff;
+  cursor: pointer
 }
 
 .alert-email button:hover {
   color: #1890ff;
-  background-color: #fff;
+  background-color: #fff
 }
 
 .alert-email button:focus,
 .alert-email button:focus::after {
   color: #fff;
-  background-color: #1890ff;
+  background-color: #1890ff
 }
 
 .alert-save-button,
 .alert-test-button {
-  margin-top: 20px;
+  margin-top: 20px
 }
 
 .alert-test-button {
   background-color: #ff4d4f;
-  color: #fff;
+  color: #fff
 }
 
 .alert-text {
-  margin-top: 10px;
+  margin-top: 10px
 }
 
 .alert-text-hidden {
   display: flex;
-  flex-direction: row;
+  flex-direction: row
 }
 
 .alert-text-hidden .input-text input {
-  margin-top: 5px;
+  margin-top: 5px
 }
 
 .alert-eye-action {
   margin-top: 10px;
   margin-left: 10px;
-  font-size: 16px;
+  font-size: 16px
 }
 
 .eye-action {
-  margin-top: 15px;
+  margin-top: 15px
 }
 
 .alert-text-hidden label {
-  padding: 5px 0px 0px 0px;
-  margin-top: 5px;
+  padding: 5px 0 0 0;
+  margin-top: 5px
 }
 
 .alert-text-hidden span {
-  margin-top: 10px;
+  margin-top: 10px
 }
 
 .alert-email-server {
-  margin-left: 2px;
+  margin-left: 2px
 }
 
 .alert-port {
-  margin-left: 44px;
+  margin-left: 44px
 }
 
 .alert-emali-id {
-  margin-left: 18px;
+  margin-left: 18px
 }
 
 .alert-user-name {
-  margin-left: 14px;
+  margin-left: 14px
 }
 
 .about-text,
 .about-span {
   display: flex;
-  flex-direction: column;
+  flex-direction: column
 }
 
 .about-text .about-span span {
   font-size: 14px;
-  margin-top: 10px;
+  margin-top: 10px
 }
 
 .bootstrap-switch-handle-on {
-  background-color: #1890ff;
+  background-color: #1890ff
 }
 
 .bootstrap-switch-handle-off {
-  background-color: #bbbbbd;
+  background-color: #bbbbbd
 }

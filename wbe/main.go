@@ -5,8 +5,16 @@ import (
 	"devops/handler"
 )
 
-func main() {
+func init() {
 	handler.InitConfig()
 	handler.InitDB(handler.ConfigContent.Database)
-	app.Start(":8080")
+}
+
+func Run() {
+	app.Start("127.0.0.1:8080")
+}
+
+func main() {
+	go handler.MonitorCircle()
+	Run()
 }

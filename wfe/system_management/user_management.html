@@ -16,15 +16,12 @@
     <script src="/js/util.js"></script>
     <script src="/js/bootstrap-switch.min.js"></script>
     <script src="/js/common.js"></script>
-  
     <link href="/css/system_management/user_management.css" rel="stylesheet">
 </head>
 
 <body>
     <div class="container-fluid navbar navbar-inverse navbar-fixed-top">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/dashboard.html">DevOps</a>
-        </div>
+        <div class="navbar-header"><a class="navbar-brand" href="/dashboard.html">DevOps</a></div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/index.html" id="real_username">未登陆</a></li>
@@ -34,76 +31,41 @@
     </div>
     <div class="col-sm-3 col-md-2 sidebar">
         <ul class="nav nav-sidebar">
-            <li class="active">
-                <a class="glyphicon glyphicon-cloud" href="/dashboard.html">
-                    工作台
-                </a>
-            </li>
+            <li class="active"><a class="glyphicon glyphicon-cloud" href="/dashboard.html"> 工作台</a></li>
         </ul>
         <ul class="nav nav-sidebar">
-            <li class="active">
-                <a class="glyphicon glyphicon-saved" data-toggle="collapse" data-parent="#accordion" href="#cmd_exec">
-                    命令执行
-                </a>
-            </li>
+            <li class="active"><a class="glyphicon glyphicon-saved" data-toggle="collapse" data-parent="#accordion"
+                    href="#cmd_exec"> 命令执行</a></li>
             <ul id="cmd_exec" class="list-group panel-collapse collapse">
                 <li><a href="/cmd_exec/cmd_exec.html">命令执行</a></li>
             </ul>
         </ul>
         <ul class="nav nav-sidebar">
-            <li class="active">
-                <a class="glyphicon glyphicon-send" data-toggle="collapse" data-parent="#accordion"
-                    href="#environment_management">
-                    环境管理
-                </a>
-            </li>
+            <li class="active"><a class="glyphicon glyphicon-send" data-toggle="collapse" data-parent="#accordion"
+                    href="#environment_management"> 环境管理</a></li>
             <ul id="environment_management" class="list-group panel-collapse collapse">
                 <li><a href="/environment_management/host_management.html">主机管理</a></li>
             </ul>
         </ul>
         <ul class="nav nav-sidebar">
-            <li class="active">
-                <a class="glyphicon glyphicon-flash" data-toggle="collapse" data-parent="#accordion"
-                    href="#monitor_metric">
-                    监控指标
-                </a>
-            </li>
+            <li class="active"><a class="glyphicon glyphicon-flash" data-toggle="collapse" data-parent="#accordion"
+                    href="#monitor_metric"> 监控指标</a></li>
             <ul id="monitor_metric" class="list-group panel-collapse collapse">
                 <li><a href="/monitor_metric/os_monitor.html">系统监控</a></li>
             </ul>
         </ul>
         <ul class="nav nav-sidebar">
-            <li class="active">
-                <a class="glyphicon glyphicon-search" data-toggle="collapse" data-parent="#accordion"
-                    href="#audit_center">
-                    审计中心
-                </a>
-            </li>
+            <li class="active"><a class="glyphicon glyphicon-search" data-toggle="collapse" data-parent="#accordion"
+                    href="#audit_center"> 审计中心</a></li>
             <ul id="audit_center" class="list-group panel-collapse collapse">
                 <li><a href="/audit_center/operation_log.html">操作记录</a></li>
             </ul>
         </ul>
         <ul class="nav nav-sidebar">
-            <li class="active">
-                <a class="glyphicon glyphicon-wrench" data-toggle="collapse" data-parent="#accordion"
-                    href="#plugin_management">
-                    插件管理
-                </a>
-            </li>
-            <ul id="plugin_management" class="list-group panel-collapse collapse">
-                <li><a href="/plugin_management/plugin_management.html">插件管理</a></li>
-            </ul>
-        </ul>
-        </ul>
-        <ul class="nav nav-sidebar">
-            <li class="active">
-                <a class="glyphicon glyphicon-cog" data-toggle="collapse" data-parent="#accordion"
-                    href="#system_management">
-                    系统管理
-                </a>
-            </li>
+            <li class="active"><a class="glyphicon glyphicon-cog" data-toggle="collapse" data-parent="#accordion"
+                    href="#system_management"> 系统管理</a></li>
             <ul id="system_management" class="list-group panel-collapse collapse in" aria-expanded="true">
-                <li><a href="/system_management/user_management.html">用户管理 <span
+                <li><a href="/system_management/user_management.html">用户管理<span
                             class="glyphicon glyphicon-chevron-right"></span></a></li>
                 <li><a href="/system_management/role_management.html">角色管理</a></li>
                 <li><a href="/system_management/system_setting.html">系统设置</a></li>
@@ -112,22 +74,12 @@
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <h3 class="sub-header">用户管理</h3>
         <div class="sub-header">
-            <form class="form-inline">
-                <label class="menu-name">用户名：</label>
-                <input type="text" class="form-control" placeholder="请输入">
-                <label class="menu-name">状态：</label>
-                <select class="form-control" required>
-                    <option disabled value="" selected hidden>请选择</option>
-                    <option>正常</option>
-                    <option>禁用</option>
-                </select>
-                <button type="button" class="btn btn-default refresh-button">
-                    <span class="glyphicon glyphicon-refresh"></span> 刷新
-                </button>
-                <button type="button" class="btn btn-default add-button" data-toggle="modal" data-target="#addUser">
-                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 新建
-                </button>
-            </form>
+            <div class="form-inline"><label>用户名：</label><input id="SearchKeyWords" type="text" class="form-control"
+                    placeholder="请输入关键字" style="width: 200px;" autocomplete="off"><button type="button"
+                    class="btn btn-default" style="margin-left: 5px;" onclick="SearchUser()">搜索</button><button
+                    type="button" class="btn btn-primary" data-toggle="modal" data-target="#CreateUserModal"
+                    style="margin-left: 5px;"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    新建用户</button></div>
         </div>
         <table class="table table-striped">
             <thead>
@@ -141,176 +93,50 @@
                     <th class="work">操作</th>
                 </tr>
             </thead>
-            <tbody id="user_list_table">
-                <tr>
-                    <td>1</td>
-                    <td>abu</td>
-                    <td>阿布</td>
-                    <td>运维工程师</td>
-                    <td>正常</td>
-                    <td>2021-07-29 00:00:36</td>
-                    <td>
-                        <button class="btn btn-default" type="submit" data-toggle="modal"
-                            data-target="#banModal">禁用</button>
-                        <button class="btn btn-default" type="submit" data-toggle="modal"
-                            data-target="#editModal">编辑</button>
-                        <button class="btn btn-default" type="submit" data-toggle="modal"
-                            data-target="#passwordModal">重置密码</button>
-                        <button class="btn btn-default" type="submit" data-toggle="modal"
-                            data-target="#deleteModal">删除</button>
-                    </td>
-                </tr>
-            </tbody>
+            <tbody id="user_list_table"></tbody>
         </table>
     </div>
-    <div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="addUserLabel" aria-hidden="true">
+    <div class="modal fade" id="CreateUserModal" tabindex="-1" role="dialog" aria-labelledby="addUserLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                        &times;
-                    </button>
+                <div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;</button>
                     <h4 class="modal-title" id="addUserLabel"><span class="glyphicon glyphicon-question-sign"></span>
-                        新建用户
-                    </h4>
+                        新建用户</h4>
                 </div>
                 <div class="modal-body">
-                    <form action="#" name="new-publishing" method="POST" class="form-horizontal">
-                        <div class="form-group has-success has-feedback">
-                            <label class="col-md-3 control-lable">
-                                <span class="infosign">*</span>
-                                用户名：</label>
-                            <div class="input-text col-md-9">
-                                <input type="text" class="form-control" placeholder="请输入用户名">
-                            </div>
+                    <form id="CreateUserForm" method="POST" class="form-horizontal">
+                        <div class="form-group has-success has-feedback"><label class="col-md-3 control-lable"><span
+                                    class="infosign">*</span> 用户名：</label>
+                            <div class="input-text col-md-9"><input type="text" class="form-control"
+                                    name="user_username" autocomplete="off" placeholder="请输入用户名"></div>
                         </div>
-
-                        <div class="form-group has-success has-feedback">
-                            <label class="col-md-3 control-lable">
-                                <span class="infosign">*</span>
-                                姓名：</label>
-                            <div class="input-text col-md-9">
-                                <input type="text" class="form-control" placeholder="请输入姓名">
-                            </div>
+                        <div class="form-group has-success has-feedback"><label class="col-md-3 control-lable"><span
+                                    class="infosign">*</span> 姓名：</label>
+                            <div class="input-text col-md-9"><input type="text" class="form-control"
+                                    name="user_realname" autocomplete="off" placeholder="请输入姓名"></div>
                         </div>
-
-                        <div class="form-group has-success has-feedback">
-                            <label class="col-md-3 control-lable">
-                                <span class="infosign">*</span>
-                                密码：</label>
-                            <div class="input-text col-md-9">
-                                <input type="text" class="form-control" placeholder="请输入密码">
-                            </div>
+                        <div class="form-group has-success has-feedback"><label class="col-md-3 control-lable"><span
+                                    class="infosign">*</span> 密码：</label>
+                            <div class="input-text col-md-9"><input type="password" class="form-control"
+                                    name="user_password" autocomplete="new-password" placeholder="请输入密码"></div>
                         </div>
-
-                        <div class="form-group has-success has-feedback">
-                            <label class="col-md-3 control-lable">
-                                <span class="infosign">*</span>
-                                角色：</label>
+                        <div class="form-group has-success has-feedback"><label class="col-md-3 control-lable"><span
+                                    class="infosign">*</span> 角色：</label>
                             <div class="col-md-9">
-                                <div class="form-group role-select">
-                                    <select class="form-control" required>
+                                <div class="form-group role-select"><select class="form-control" id="RoleList"
+                                        name="role_id">
                                         <option disabled value="" selected hidden>请选择</option>
-                                        <option>运维工程师</option>
-                                        <option>开发工程师</option>
-                                        <option>测试工程师</option>
-                                        <option>产品经理</option>
-                                        <option>CTO</option>
-                                    </select>
-                                    <button type="button" class="btn btn-default">
-                                        <a href="/system_management/role_management.html">新建角色</a>
-                                    </button>
-                                </div>
+                                    </select><button type="button" class="btn btn-default"><a
+                                            href="/system_management/role_management.html">新建角色</a></button></div>
                             </div>
                         </div>
                     </form>
                 </div>
-                <div class="modal-footer second-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">取消
-                    </button>
-                    <button type="button" class="btn btn-primary">确定</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="banModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content banpage">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title"><span class="glyphicon glyphicon-question-sign"></span>操作确认</h4>
-                </div>
-                <div class="modal-body">
-                    <p>确定要禁用【阿布】？</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                    <button type="button" class="btn btn-primary">确定</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                        &times;
-                    </button>
-                    <h4 class="modal-title" id="editModalLabel"><span class="glyphicon glyphicon-question-sign"></span>
-                        编辑用户
-                    </h4>
-                </div>
-                <div class="modal-body">
-                    <form action="#" name="new-publishing" method="POST" class="form-horizontal">
-                        <div class="form-group has-success has-feedback">
-                            <label class="col-md-3 control-lable">
-                                <span class="infosign">*</span>
-                                用户名：</label>
-                            <div class="input-text col-md-9">
-                                <input type="text" name="apptitle" class="form-control" placeholder="请输入用户名">
-                            </div>
-                        </div>
-
-                        <div class="form-group has-success has-feedback">
-                            <label class="col-md-3 control-lable">
-                                <span class="infosign">*</span>
-                                姓名：</label>
-                            <div class="input-text col-md-9">
-                                <input type="text" name="apptitle" class="form-control" placeholder="请输入姓名">
-                            </div>
-                        </div>
-
-                        <div class="form-group has-success has-feedback">
-                            <label class="col-md-3 control-lable">
-                                <span class="infosign">*</span>
-                                角色：</label>
-                            <div class="col-md-9">
-                                <div class="form-group role-select">
-                                    <select class="form-control" required>
-                                        <option disabled value="" selected hidden>请选择</option>
-                                        <option>运维工程师</option>
-                                        <option>开发工程师</option>
-                                        <option>测试工程师</option>
-                                        <option>产品经理</option>
-                                        <option>CTO</option>
-                                    </select>
-                                    <button type="button" class="btn btn-default role-button">
-                                        <a href="/system_management/role_management.html">新建角色</a>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer second-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">取消
-                    </button>
-                    <button type="button" class="btn btn-primary">确定</button>
-                </div>
+                <div class="modal-footer second-footer"><button type="button" class="btn btn-default"
+                        data-dismiss="modal">取消</button><button type="button" class="btn btn-primary"
+                        onclick="CreateUser()">确定</button></div>
             </div>
         </div>
     </div>
@@ -318,19 +144,18 @@
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content passwordpage">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
+                <div class="modal-header"><button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title"><span class="glyphicon glyphicon-question-sign"></span> 重置密码</h4>
                 </div>
-                <div class="pass-eye">
-                    <input type="password" id="password" placeholder="密码" class="form-control psw-input" />
-                    <i class="glyphicon glyphicon-eye-close" onclick="hideShowPsw()" id="eye"></i>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                    <button type="button" class="btn btn-primary">确定</button>
-                </div>
+                <div class="form-group"><span id="UpdateModalUserID" hidden></span><input id="UpdateModalUserName"
+                        type="text" class="form-control" style="margin-left: 50px; width: 260px; margin-top: 30px;"
+                        readonly /></div>
+                <div class="pass-eye"><input type="password" id="UpdateModalUserPassword" placeholder="密码"
+                        class="form-control psw-input" style="margin-left: 50px;" /></div>
+                <div class="modal-footer"><button type="button" class="btn btn-default"
+                        data-dismiss="modal">取消</button><button type="button" class="btn btn-primary"
+                        id="UpdateModalButton">确定</button></div>
             </div>
         </div>
     </div>
@@ -338,21 +163,24 @@
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content deletepage">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
+                <div class="modal-header"><button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title"><span class="glyphicon glyphicon-question-sign"></span> 删除确认</h4>
                 </div>
                 <div class="modal-body">
-                    <p>确定要删除【阿布】？</p>
+                    <p>确定要删除【<span id="DeleteModalUserName"></span>】？</p>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                    <button type="button" class="btn btn-primary">确定</button>
-                </div>
+                <div class="modal-footer"><button type="button" class="btn btn-default"
+                        data-dismiss="modal">取消</button><button type="button" class="btn btn-primary"
+                        id="DeleteModalButton">确定</button></div>
             </div>
         </div>
     </div>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.cookie.min.js"></script>
+    <script src="/js/sweetalert.min.js"></script>
+    <script src="/js/util.js"></script>
     <script src="/js/system_management/user_management.js"></script>
 </body>
 
